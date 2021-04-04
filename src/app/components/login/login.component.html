@@ -1,0 +1,34 @@
+<form [formGroup]="formGroup" class="login-form" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <ng-container *ngIf="(userAuthenticationInProgress$ | async) === false; else loadingTemplate">
+        <mat-error *ngIf="userAuthenticationFailed">
+          The username and password were not recognized
+        </mat-error>
+        <mat-form-field appearance="fill">
+          <mat-label>User Name</mat-label>
+          <input matInput formControlName="userName" cdkFocusInitial required>
+          <mat-error>
+            Please provide a valid user name
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>User Password</mat-label>
+          <input matInput [type]="'password'" formControlName="userPassword" placeholder="Type your password ..." required>
+          <mat-error>
+            Please provide a valid password
+          </mat-error>
+        </mat-form-field>
+        <mat-card-actions >
+          <button mat-raised-button [disabled]="!formGroup.valid">Login</button>
+        </mat-card-actions>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</form>
+
+<ng-template #loadingTemplate>
+  <label>Trying to login ...</label>
+  <mat-spinner diameter="80"></mat-spinner>
+</ng-template>

@@ -1,0 +1,39 @@
+<div class="data-container" *ngIf="!loading; else loadingTemplate">
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef> Value </th>
+        <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button (click)="deleteData(element.id)">
+          <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div>
+    <mat-toolbar class="footer">
+      <mat-dialog-actions>
+        <button mat-button cdkFocusInitial (click)="addData()">Add Data</button>
+      </mat-dialog-actions>
+    </mat-toolbar>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <mat-spinner diameter="80"></mat-spinner>
+</ng-template>

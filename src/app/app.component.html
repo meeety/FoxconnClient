@@ -1,0 +1,24 @@
+<mat-toolbar class="toolbar">
+  <img src="./../assets/img/Foxconn_logo.svg" class="logo" routerLink="/"/>
+  <span class="spacer"></span>
+  <div fxLayout="row" class="toolbar-item">
+    <button mat-stroked-button routerLink="/login" *ngIf="(userAuthenticated$ | async) === false else logoutTemplate">
+      <mat-icon>power_settings_new</mat-icon>
+      Login
+    </button>
+  </div>
+  <button mat-icon-button routerLink="/data" *ngIf="(userAuthenticated$ | async)">
+    <mat-icon>list</mat-icon>
+  </button>
+  <button mat-icon-button routerLink="/">
+    <mat-icon>home</mat-icon>
+  </button>
+</mat-toolbar>
+<router-outlet></router-outlet>
+
+<ng-template #logoutTemplate>
+  <button mat-stroked-button (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    Logout
+  </button>
+</ng-template>

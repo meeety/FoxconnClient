@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+}
+
+.data-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 3rem);
+}
+
+.table-container {
+  overflow: auto;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  height: 3rem;
+}
+
+mat-spinner{
+  margin: auto;
+}

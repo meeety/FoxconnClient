@@ -1,0 +1,16 @@
+.dialog-content {
+  width: 400px;
+}
+
+mat-form-field {
+  display: block;
+}
+
+textarea {
+  height: 60px;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}

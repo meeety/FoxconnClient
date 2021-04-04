@@ -1,0 +1,22 @@
+<div class="dialog-content">
+  <h2 mat-dialog-title>Add Data</h2>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="formGroup" (ngSubmit)="addData()">
+      <mat-form-field appearance="fill">
+        <mat-label>Data Name</mat-label>
+        <input matInput formControlName="dataName" required>
+        <mat-error>
+          Please provide a valid data name
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Data Value</mat-label>
+        <textarea matInput formControlName="dataValue"></textarea>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close cdkFocusInitial>Cancel</button>
+    <button mat-button [disabled]="formGroup.invalid" (click)="addData()">Add</button>
+  </mat-dialog-actions>
+<div>
