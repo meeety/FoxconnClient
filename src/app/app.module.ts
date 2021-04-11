@@ -19,14 +19,17 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DataComponent } from './components/data/data.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AddDataDialog } from './components/dialogs/add-data-dialog.ts/add-data-dialog.ts.component';
+import { ConfirmDialogComponent } from './components/dialogs/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DataComponent,
-    AddDataDialog
+    AddDataDialog,
+    ConfirmDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -37,6 +40,7 @@ import { AddDataDialog } from './components/dialogs/add-data-dialog.ts/add-data-
     MatInputModule,
     MatCardModule,
     MatFormFieldModule,
+    MatSnackBarModule,
     MatTableModule,
     MatProgressSpinnerModule,
     MatButtonModule,

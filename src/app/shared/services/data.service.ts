@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http"
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
 import { IDataDto } from "../models/data/idata.dto";
 import { IDataResultDto } from "../models/data/idata-result.dto";
 import { IDataPostDto } from "../models/data/idata-post.dto";
